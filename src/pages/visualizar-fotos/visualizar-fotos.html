@@ -1,0 +1,36 @@
+<!--
+  Generated template for the IncluiFotoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar hideBackButton>
+    <ion-buttons start left>
+      <button ion-button (click)="voltarPagina()" style="color:black !important;">
+        <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Fotos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card text-center>{{ local.payload.val().pais}} - {{ local.payload.val().local}}</ion-card>
+
+  <ion-row>
+    <button ion-button full (click)="incluirFoto()">
+      <ion-icon ios="ios-document" md="md-document"></ion-icon>
+      Enviar nova foto
+    </button>
+  </ion-row>
+  <ion-row>
+    <ion-list *ngFor="let foto of fotosmostrar">
+      <ion-col>
+      <img src="{{ foto.payload.val().downloadurl }}" />      
+      </ion-col>
+    </ion-list>
+  </ion-row>
+
+</ion-content>

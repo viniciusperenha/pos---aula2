@@ -39,6 +39,26 @@
     </ion-row>
 
     <ion-row padding>
+        <ion-item>
+          <ion-label floating>Altitude</ion-label>
+          <ion-input #local formControlName="altitude" type="text" [class.invalid]="!localForm.controls.altitude.valid && localForm.controls.altitude.dirty"></ion-input>
+        </ion-item>
+        <ion-item class="error-message" *ngIf="!localForm.controls.altitude.valid  && localForm.controls.altitude.dirty">
+          <p>Preencha a altitude.</p>
+        </ion-item>
+      </ion-row>
+
+      <ion-row padding>
+          <ion-item>
+            <ion-label floating>Longitute</ion-label>
+            <ion-input #local formControlName="longitude" type="text" [class.invalid]="!localForm.controls.longitude.valid && localForm.controls.longitude.dirty"></ion-input>
+          </ion-item>
+          <ion-item class="error-message" *ngIf="!localForm.controls.longitude.valid  && localForm.controls.longitude.dirty">
+            <p>Preencha a logitude.</p>
+          </ion-item>
+        </ion-row>
+
+    <ion-row padding>
       <button block type="submit" ion-button large>
         <ion-icon ios="ios-log-in" md="md-log-in" style="font-size:34px;padding-right:10px;"></ion-icon> Cadastrar local</button>
     </ion-row>

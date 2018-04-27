@@ -27,7 +27,9 @@ export class CadastroLocalPage {
 
       this.localForm = formBuilder.group({
         pais: ['', Validators.required],
-        local: ['', Validators.required]
+        local: ['', Validators.required],
+        altitude: ['', Validators.required],
+        longitude: ['', Validators.required]
       });
   }
 

@@ -1,0 +1,54 @@
+<!--
+  Generated template for the IncluiFotoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar hideBackButton>
+    <ion-buttons start left>
+      <button ion-button (click)="voltarPagina()" style="color:black !important;">
+        <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Fotos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <h3>{{ local.payload.val().pais}} - {{ local.payload.val().local}}</h3>
+
+  <ion-row>
+      <ion-col text-center col-6 no-margin no-padding>
+        <button ion-button full color="secondary" (click)="getFoto('picture')">
+          <ion-icon ios="ios-camera" md="md-camera" style="font-size:34px;padding-right: 10px;"></ion-icon>
+          Foto
+        </button>
+
+      </ion-col>
+
+      <ion-col text-center col-6 no-margin no-padding>
+        <button ion-button full  (click)="getFoto('gallery')">
+          <ion-icon ios="ios-images" md="md-images" style="font-size:34px; padding-right: 10px;"></ion-icon>
+          Galeria
+        </button>
+
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <button ion-button full color="danger" (click)="salvarFotos()">
+        <ion-icon ios="ios-document" md="md-document" style="font-size:34px;padding-right: 10px;"></ion-icon>
+        Salvar Foto(s)
+      </button>
+    </ion-row>
+    <ion-row>
+  <ion-list *ngFor="let foto of listafotos; let i = index" [attr.data-index]="i">
+    <ion-card>
+        <img src="{{ foto }}" (click)="apagaImagen(i)" />
+    </ion-card>
+  </ion-list>
+</ion-row>
+
+</ion-content>

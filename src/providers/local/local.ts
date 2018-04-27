@@ -16,11 +16,9 @@ export class LocalProvider {
 
   constructor(protected db: AngularFireDatabase) {
     this.itemsRef = db.list('local');
-
-
   }
 
-  listaTodos(): Promise<any> {
+  getAllPromisse(): Promise<any> {
     return new Promise((resolve) => {
        this.itemsRef.snapshotChanges().subscribe(items => resolve(items));
     });
@@ -30,12 +28,8 @@ export class LocalProvider {
     return this.itemsRef.snapshotChanges();
   }
 
-  newObject(): Promise<any> {
-    return new Promise(resolve => {
-      resolve({ novo: true });
-    });
-  }
 
+  // exemplo
   retornaUm(id):any {
     return this.db.object( 'local/'+ id).valueChanges();
   }

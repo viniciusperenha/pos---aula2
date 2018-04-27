@@ -1,7 +1,7 @@
 import { HomePage } from './../home/home';
 import { EmailValidator } from './../../validators/email';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Loading } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthProvider } from '../../providers/auth/auth';
 
@@ -26,9 +26,9 @@ export class LoginPage {
     public formBuilder: FormBuilder) {
 
     this.loginForm = formBuilder.group({
-      email: ['', Validators.compose([Validators.required,
+      email: ['viniciusperenha@gmail.com', Validators.compose([Validators.required,
       EmailValidator.isValid])],
-      password: ['', Validators.compose([Validators.minLength(6),
+      password: ['123456', Validators.compose([Validators.minLength(6),
       Validators.required])]
     });
   }
