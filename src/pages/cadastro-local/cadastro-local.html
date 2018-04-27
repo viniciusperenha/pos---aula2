@@ -1,0 +1,48 @@
+<!--
+  Generated template for the CadastroLocalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar hideBackButton>
+    <ion-buttons start left>
+      <button ion-button (click)="voltarPagina()" style="color:black !important;">
+        <ion-icon ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Cadastro de Local</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <form [formGroup]="localForm" (submit)="salvarLocal()" novalidate>
+    <ion-row padding>
+      <ion-item>
+        <ion-label floating>País</ion-label>
+        <ion-input #pais formControlName="pais" type="text" [class.invalid]="!localForm.controls.pais.valid && localForm.controls.pais.dirty"></ion-input>
+      </ion-item>
+      <ion-item class="error-message" *ngIf="!localForm.controls.pais.valid  && localForm.controls.pais.dirty">
+        <p>Informe um País</p>
+      </ion-item>
+    </ion-row>
+
+    <ion-row padding>
+      <ion-item>
+        <ion-label floating>Local</ion-label>
+        <ion-input #local formControlName="local" type="text" [class.invalid]="!localForm.controls.local.valid && localForm.controls.local.dirty"></ion-input>
+      </ion-item>
+      <ion-item class="error-message" *ngIf="!localForm.controls.local.valid  && localForm.controls.local.dirty">
+        <p>Preencha o local.</p>
+      </ion-item>
+    </ion-row>
+
+    <ion-row padding>
+      <button block type="submit" ion-button large>
+        <ion-icon ios="ios-log-in" md="md-log-in" style="font-size:34px;padding-right:10px;"></ion-icon> Cadastrar local</button>
+    </ion-row>
+  </form>
+
+
+</ion-content>
