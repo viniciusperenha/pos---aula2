@@ -17,23 +17,24 @@ export class LocalProvider {
   constructor(protected db: AngularFireDatabase) {
     this.itemsRef = db.list('local');
   }
-
+  // retorna uma promisse de local, nao é real time
   getAllPromisse(): Promise<any> {
     return new Promise((resolve) => {
        this.itemsRef.snapshotChanges().subscribe(items => resolve(items));
     });
   }
-
+  // retorna um observable real time da lista de local
   getAll() {
     return this.itemsRef.snapshotChanges();
   }
 
 
-  // exemplo
+  // exemplo como retornar apenas um registro passando o ID
   retornaUm(id):any {
     return this.db.object( 'local/'+ id).valueChanges();
   }
 
+  //insere um local
   insere(obj){
     this.itemsRef.push(obj);
   }

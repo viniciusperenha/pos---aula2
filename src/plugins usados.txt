@@ -1,0 +1,11 @@
+instalar angularfire e firebase ->
+npm install firebase angularfire2 --save  (alterar a versao do firebase para 4.12.1, será instalado o 4.13 que está com bug)
+
+instalar camera->
+ionic cordova plugin add cordova-plugin-camera
+npm install --save @ionic-native/camera
+
+Geolocator ->
+ionic cordova plugin add cordova-plugin-geolocation --variable GEOLOCATION_USAGE_DESCRIPTION="To locate you"
+npm install --save @ionic-native/geolocation
+

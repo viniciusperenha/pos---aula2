@@ -8,13 +8,21 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Locais visitados</h3>
+  <h3>Locais cadastrados</h3>
 
+  <h4>Real time database com Observable</h4>
   <ion-list *ngFor="let item of lista" >
       <button ion-item padding-left style="border-bottom: 1px grey solid" (click)="abreDetalhes(item)" >
           {{item.payload.val().pais}} - {{item.payload.val().local}}
       </button>
   </ion-list>
+  <br/>
+  <h4>Real time database com Promisses</h4>
+  <ion-list *ngFor="let item of listapromisse" >
+    <button ion-item padding-left style="border-bottom: 1px grey solid" (click)="abreDetalhes(item)" >
+        {{item.payload.val().pais}} - {{item.payload.val().local}}
+    </button>
+</ion-list>
 
 
 </ion-content>

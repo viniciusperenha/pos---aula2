@@ -16,13 +16,14 @@ import { AuthProvider } from '../providers/auth/auth';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any;
+  rootPage: any; //o construtor controla a root page
 
   pages: Array<{ title: string, component: any }>;
 
   constructor(public platform: Platform, public statusBar: StatusBar,
     public splashScreen: SplashScreen, public afAuth: AngularFireAuth, private authProvider:AuthProvider) {
-
+      /*aqui verificamos se há um usuário já logado na memoria do angularfireauth
+      caso haja não é necessário um novo login, envia o usuario direto pro home*/
       const authObserver = this.afAuth.authState.subscribe(user => {
         if (user) {
           this.rootPage = HomePage;
@@ -57,7 +58,7 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.push(page.component);
   }
-
+  // faz logou do usuario usando o metodo do authprovider
   logout(){
     this.authProvider.logoutUser();
     this.nav.setRoot(LoginPage);

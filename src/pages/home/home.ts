@@ -10,12 +10,15 @@ import { LocalProvider } from '../../providers/local/local';
 export class HomePage {
 
   lista = [];
+  listapromisse = [];
 
   constructor(public navCtrl: NavController, private localProvider:LocalProvider, public navParams:NavParams) {
-    //this.localProvider.getAllPromisse().then(res=>this.lista = res);
-   this.localProvider.getAll().subscribe(res=>this.lista = res);
+    // retorna uma promisse com os dados (nao real time)
+    this.localProvider.getAllPromisse().then(res=>this.listapromisse = res);
+    // retorna um observable, que faz um socket com o firebase (real time)
+    this.localProvider.getAll().subscribe(res=>this.lista = res);
   }
-
+  // abre a pagina passando parametro para proxima
   abreDetalhes(obj){
     this.navParams.data = obj;
     this.navCtrl.push(VisualizarFotosPage, this.navParams);

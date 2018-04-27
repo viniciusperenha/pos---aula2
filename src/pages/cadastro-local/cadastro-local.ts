@@ -24,7 +24,8 @@ export class CadastroLocalPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public formBuilder: FormBuilder, private localProvider:LocalProvider) {
-
+  /* usamos o formbuilder para validar os campos aqui pode criar validadores customizados
+      */
       this.localForm = formBuilder.group({
         pais: ['', Validators.required],
         local: ['', Validators.required],
@@ -32,7 +33,7 @@ export class CadastroLocalPage {
         longitude: ['', Validators.required]
       });
   }
-
+  //caso o formulario seja valido salva o local e volta pra pagina inicial
   salvarLocal(){
     if (!this.localForm.valid) {
       alert('preencha todos os campos');

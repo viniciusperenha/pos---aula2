@@ -17,6 +17,7 @@ import { CadastroLocalPage } from '../pages/cadastro-local/cadastro-local';
 import { FotosProvider } from '../providers/fotos/fotos';
 import { Camera } from '@ionic-native/camera';
 import { VisualizarFotosPage } from '../pages/visualizar-fotos/visualizar-fotos';
+import { Geolocation } from '@ionic-native/geolocation';
 
 @NgModule({
   declarations: [
@@ -30,9 +31,9 @@ import { VisualizarFotosPage } from '../pages/visualizar-fotos/visualizar-fotos'
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireModule.initializeApp(firebaseConfig), //criado arquivo deo configuracao e inicia o firebase
+    AngularFireDatabaseModule, // modulo database
+    AngularFireAuthModule // modulo de autenticacao
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -50,7 +51,8 @@ import { VisualizarFotosPage } from '../pages/visualizar-fotos/visualizar-fotos'
     AuthProvider,
     LocalProvider,
     FotosProvider,
-    Camera
+    Camera,      //plugin camera
+    Geolocation //plugin de geolocalizacao
   ]
 })
 export class AppModule {}

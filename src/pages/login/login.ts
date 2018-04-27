@@ -24,11 +24,13 @@ export class LoginPage {
 
   constructor(public navCtrl: NavController, public authData: AuthProvider,
     public formBuilder: FormBuilder) {
-
+      /* usamos o formbuilder para validar os campos aqui pode criar validadores customizados
+      como foi feito no email
+      */
     this.loginForm = formBuilder.group({
-      email: ['viniciusperenha@gmail.com', Validators.compose([Validators.required,
+      email: ['', Validators.compose([Validators.required,
       EmailValidator.isValid])],
-      password: ['123456', Validators.compose([Validators.minLength(6),
+      password: ['', Validators.compose([Validators.minLength(6),
       Validators.required])]
     });
   }
@@ -39,11 +41,11 @@ export class LoginPage {
   }
 
   loginUser() {
-
+    // verifica se o form foi preenchido corretamente
     if (!this.loginForm.valid) {
       console.log(this.loginForm.value);
     } else {
-
+      // faz login usando o provider auth
       this.authData.loginUser(this.loginForm.value.email, this.loginForm.value.password)
         .then(authData => {
 
